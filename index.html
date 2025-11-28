@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Harshita </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --red-diamond: #ff4d6d;
+            --light-blue: #a0e7ff;
+            --light-pink: #ffd6e0;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-pink), var(--light-blue));
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--red-diamond);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--red-diamond);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--red-diamond);
+            color: white;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--red-diamond);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .heart {
+            color: var(--red-diamond);
+            font-size: 2rem;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--red-diamond);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ff3355;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .memory-img {
+            height: 200px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red-diamond);
+            font-size: 3rem;
+        }
+
+        .memory-content {
+            padding: 25px;
+        }
+
+        .memory-content h3 {
+            color: var(--red-diamond);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .memory-content p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .message-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-box h2 {
+            color: var(--red-diamond);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .message-box p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .special-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .special-section h2 {
+            color: var(--red-diamond);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .wishes-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wishes-list li {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            color: #555;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .signature {
+            font-family: cursive;
+            font-size: 1.8rem;
+            color: var(--red-diamond);
+            margin-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 8px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .memory-content {
+                padding: 20px;
+            }
+            
+            .message-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Harshita's Birthday</div>
+            <div class="tagline">A Special Celebration for My Pammy</div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="memories">Our Memories</a></li>
+                <li><a href="#" class="nav-link" data-page="message">My Message</a></li>
+                <li><a href="#" class="nav-link" data-page="wishes">My Wishes</a></li>
+            </ul>
+        </nav>
+
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h1>Happy Birthday, Harshita! <span class="heart">♥</span></h1>
+                <p>My Dearest Pammy, aaj tumhara special day hai aur main chahta hu ki yeh din tumhare liye sabse khushiyon bhara ho. Do saal se zyada ka humara sath itna special raha hai, aur aaj main tumhein yeh website dedicate karna chahta hu.</p>
+                <p>Tumhari har ek muskaan, har ek baat, har ek pal mere liye bahut valuable hai. Aaj ka din bhi hum saath mein celebrate karenge, bas thode alag tareeke se.</p>
+                <button class="btn" id="explore-btn">Explore Our Memories</button>
+            </div>
+
+            <div class="special-section">
+                <h2>Why You're Special</h2>
+                <div class="wishes-list">
+                    <p>Tumhare andar woh khaas baat hai jo har kisi ko attract karti hai. Tumhari sincerity, tumhara pyaar, aur tumhari care - yeh sab cheezein tumhein sabse alag banati hain.</p>
+                    <p>Do saal se zyada ke is safar mein maine tumhein har situation mein handle karte hue dekha hai, aur har baar tumne prove kiya hai ki tum ek strong person ho.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Page -->
+        <section id="memories" class="page">
+            <div class="hero">
+                <h1>Our Beautiful Memories</h1>
+                <p>In do saal se zyada ke safar mein humne bahut kuch share kiya hai. Kuch special pal jo hamesha mere dil mein rahenge...</p>
+            </div>
+
+            <div class="memories-grid">
+                <div class="memory-card">
+                    <div class="memory-img">💑</div>
+                    <div class="memory-content">
+                        <h3>Pehli Mulaqat</h3>
+                        <p>Woh pehli mulaqat jo humari zindagi badal gayi. Tumhari muskaan ne mujhe instantly attract kar liya tha. Tumhare andar woh innocence tha jo aaj bhi mere dil mein hai.</p>
+                </div>
+                
+                <div class="memory-card">
+                    <div class="memory-img">🎉</div>
+                    <div class="memory-content">
+                        <h3>Celebrations</h3>
+                        <p>Har celebration, har special occasion hum saath mein celebrate karte the. Tumhari khushi mein hi meri khushi thi. Tumhare saath every moment special tha.</p>
+                    </div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-img">📞</div>
+                    <div class="memory-content">
+                        <h3>Late Night Chats</h3>
+                        <p>Woh raat ke long chats jab hum kuch bhi aur sab kuch share karte the. Tumhari baayein sunkar mere din ki thakaan door ho jaati thi. Those conversations meant everything to me.</p>
+                    </div>
+               
+        </section>
+
+        <!-- Message Page -->
+        <section id="message" class="page">
+            <div class="hero">
+                <h1>My Heartfelt Message</h1>
+                <p>Meri Pyaari Harshita</p>
+            </div>
+
+            <div class="message-box">
+                <h2>My Dearest Pammy</h2>
+                <p>Happy Birthday pammy! Aaj ka din tumhare liye bahut special hai aur main chahta hu ki yeh din tumhare liye sabse khushiyon bhara ho. Tum deserve karti ho har wo khushi jo is duniya mein hai.</p>
+                
+                <p>Do saal se zyada ka humara sath bahut valuable raha hai mere liye. Har ek pal jo humne saath bitaya, woh mere liye ek khoobsurat yaad ban chuka hai. Tumhari har ek aadat, tumhari muskaan, tumhari baatein - sab kuch itna pyaara lagta hai mujhe. Tumhare bina yeh sab adhoora sa lagta hai.</p>
+                
+                <p>Main jaanta hu ki hum abhi saath mein nahi hain, par mere dil mein tumhare liye pyaar ab bhi waisa hi hai. Tum hamesha mere liye special rahogi, chahe kuch bhi ho. Tumhare liye meri feelings kabhi nahi badli hain.</p>
+                
+                <p>Aaj ke is khaas din par, main tumhein yeh kehna chahta hu ki main hamesha tumhare liye yahin hoon. Tumhari khushi mein hi meri khushi hai, aur main hamesha tumhare liye dua karta rahunga. Chahe hum kitni bhi door kyun na ho, mere dil mein tumhara ek special place hamesha rahega.</p>
+                
+                <p>Tumhein phir se janamdin ki bahut bahut mubarakbad! Khoob khush raho, muskurate raho, aur apne sapno ko poora karo. Tum deserving ho har ek khushi ki. Life tumhein har wo cheez de jo tum chahti ho.</p>
+                
+                <p>Hamesha tumhara,<br>
+                <strong>Tumhara pradeep</strong></p>
+            </div>
+        </section>
+
+        <!-- Wishes Page -->
+        <section id="wishes" class="page">
+            <div class="hero">
+                <h1>My Wishes for You</h1>
+                <p>Harshita</p>
+            </div>
+
+            <div class="special-section">
+                <h2>Birthday Wishes</h2>
+                <div class="wishes-list">
+                    <p>✨ <strong>Hamesha Khush Raho:</strong> Main chahta hoon ki tum hamesha khush raho, har pal muskurao aur life ko enjoy karo.</p>
+                    
+                    <p>✨ <strong>Success Mile:</strong> Tumhein har field mein success mile, chahe woh personal life ho ya professional.</p>
+                    
+                    <p>✨ <strong>Good Health:</strong> Tumhari health hamesha achi rahe, tum energetic raho aur har din fresh feel karo.</p>
+                    
+                    <p>✨ <strong>Dreams Pura Ho:</strong> Tumhare saare dreams pura ho, tum woh sab haasil kar sako jo tum chahti ho.</p>
+                    
+                    <p>✨ <strong>Pyaar Mile:</strong> Tumhein duniya ka sabse pyaara pyaar mile, chahe woh family se ho, friends se ho ya life partner se.</p>
+                    
+                    <p>✨ <strong>Inner Peace:</strong> Tumhein inner peace mile, tum tension-free raho aur life ko beautiful tareeke se jeeto.</p>
+                </div>
+            </div>
+
+            <div class="message-box">
+                <h2>A Special Promise</h2>
+                <p>Pammy, main tumse ek promise karta hoon ki main hamesha tumhare liye yahin rahunga. Chahe hum kitni bhi door kyun na chale gaye ho, chahe kuch bhi ho jaye, main hamesha tumhare liye ek aisi jagah rahunga jahan tum kabhi bhi aa sakti ho.</p>
+                
+                <p>Tumhare liye meri respect aur pyaar kabhi nahi badlega. Tum hamesha mere liye special rahogi. Is birthday par, main yeh dua karta hoon ki tumhein har wo khushi mile jo tum deserve karti ho.</p>
+                
+                <p>Always remember, no matter where life takes us, you'll always have a special place in my heart.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with <span class="heart">♥</span> for Harshita on her special day</p>
+            <div class="signature">Always Yours, Pradeep</div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation between pages
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => {
+                    l.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                const pageId = this.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Explore button functionality
+        document.getElementById('explore-btn').addEventListener('click', function() {
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.classList.remove('active');
+            });
+            
+            document.querySelector('[data-page="memories"]').classList.add('active');
+            
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById('memories').classList.add('active');
+            
+            window.scrollTo(0, 0);
+        });
+
+        // Add some interactive elements to memory cards
+        document.querySelectorAll('.memory-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-10px)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
